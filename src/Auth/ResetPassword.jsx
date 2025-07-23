@@ -9,7 +9,7 @@ function ResetPassword() {
   const navigate = useNavigate();
   const { token } = useParams();
 
-  const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/';
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
