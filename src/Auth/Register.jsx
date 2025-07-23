@@ -32,11 +32,7 @@ function Register() {
       const response = await fetch('http://localhost:5000/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: name,
-          email: email,
-          password: password,
-        }),
+        body: JSON.stringify({ username: name, email, password }),
       });
 
       const data = await response.json();
@@ -58,29 +54,24 @@ function Register() {
   };
 
   return (
-    <div className="flex min-h-screen bg-black font-jakarta">
-      <div className="w-1/2 flex items-center justify-center">
-        <img src={LogoTumorVision} alt="Tumor Vision Logo" className="max-w-xs" />
+    <div className="flex flex-col md:flex-row min-h-screen bg-black font-jakarta">
+      {/* Left image */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-black">
+        <img src={LogoTumorVision} alt="Tumor Vision Logo" className="max-w-[200px] md:max-w-xs" />
       </div>
 
-      <div className="w-1/2 flex items-center justify-center text-white px-8">
+      {/* Right form */}
+      <div className="w-full md:w-1/2 flex items-center justify-center text-white px-6 py-10 md:py-0">
         <div className="w-full max-w-md space-y-6">
-          <h1 className="text-4xl font-bold">Register</h1>
-          <p className="text-gray-400">Daftar sekarang untuk membuat akun</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-center md:text-left">Register</h1>
+          <p className="text-gray-400 text-center md:text-left">Daftar sekarang untuk membuat akun</p>
 
           {message && <div className={`p-4 rounded-md text-sm ${messageType === 'success' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'}`}>{message}</div>}
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input type="text" placeholder="Masukan Nama" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
-            <input
-              type="text" // ⬅️ Ganti dari 'email' agar validasi HTML5 tidak blokir
-              placeholder="Masukan alamat Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none"
-              required
-            />
+            <input type="text" placeholder="Masukan alamat Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
@@ -92,7 +83,7 @@ function Register() {
           </form>
 
           <p className="text-center text-sm mt-4">
-            sudah punya akun?{' '}
+            Sudah punya akun?{' '}
             <Link to="/login" className="text-yellow-500 font-semibold hover:underline">
               Login
             </Link>
