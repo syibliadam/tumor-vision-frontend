@@ -6,7 +6,7 @@ import HomeGlobe from '../assets/home-globe-icon.png';
 import gliomaImg from '../assets/glioma.png';
 import meningiomaImg from '../assets/meningioma.png';
 import notumorImg from '../assets/Notumor.png';
-import pituitaryImg from '../assets/pituary.png';
+import pituitaryImg from '../assets/Pituary.png';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion'; //

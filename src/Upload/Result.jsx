@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import gliomaImg from '../assets/glioma.png';
 import meningiomaImg from '../assets/meningioma.png';
-import pituitaryImg from '../assets/pituary.png';
+import pituitaryImg from '../assets/Pituary.png';
 import notumorImg from '../assets/Notumor.png';
 import HomeDiagnosis from '../assets/home-diagnosa.png';
 
