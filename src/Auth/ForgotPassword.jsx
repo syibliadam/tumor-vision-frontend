@@ -1,13 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
   const navigate = useNavigate();
-
-  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
