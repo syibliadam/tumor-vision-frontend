@@ -20,11 +20,12 @@ function History() {
   const [history, setHistory] = useState([]);
   const [chartData, setChartData] = useState(null);
   const [search, setSearch] = useState('');
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   const fetchHistory = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:5000/auth/history', {
+      const response = await fetch(`${BASE_URL}/auth/history`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -60,7 +61,7 @@ function History() {
   const handleDelete = async (timestamp) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/auth/history', {
+      const res = await fetch(`${BASE_URL}/auth/history`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
