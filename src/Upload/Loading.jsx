@@ -43,7 +43,8 @@ function Loading() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/predict', {
+      const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+      const response = await fetch(`${BASE_URL}/predict`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
