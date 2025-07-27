@@ -26,7 +26,10 @@ function History() {
     const token = localStorage.getItem('token');
     try {
       const response = await fetch(`${BASE_URL}/auth/history`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': 'true',
+        },
       });
 
       const data = await response.json();
@@ -66,6 +69,7 @@ function History() {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify({ timestamp }),
       });
