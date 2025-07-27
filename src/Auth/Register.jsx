@@ -59,14 +59,16 @@ function Register() {
   };
 
   return (
-    <div className="flex min-h-screen bg-black font-jakarta">
-      <div className="w-1/2 flex items-center justify-center">
-        <img src={LogoTumorVision} alt="Tumor Vision Logo" className="max-w-xs" />
+    <div className="min-h-screen flex flex-col md:flex-row bg-black text-white font-jakarta">
+      {/* LEFT SIDE - IMAGE */}
+      <div className="md:w-1/2 w-full flex items-center justify-center p-6">
+        <img src={LogoTumorVision} alt="Tumor Vision Logo" className="w-48 md:w-64" />
       </div>
 
-      <div className="w-1/2 flex items-center justify-center text-white px-8">
+      {/* RIGHT SIDE - FORM */}
+      <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-8">
         <div className="w-full max-w-md space-y-6">
-          <h1 className="text-4xl font-bold">Register</h1>
+          <h1 className="text-3xl md:text-4xl font-bold">Register</h1>
           <p className="text-gray-400">Daftar sekarang untuk membuat akun</p>
 
           {message && <div className={`p-4 rounded-md text-sm ${messageType === 'success' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'}`}>{message}</div>}
@@ -74,14 +76,7 @@ function Register() {
           <form className="space-y-4" onSubmit={handleSubmit}>
             <input type="text" placeholder="Masukan Nama" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
-            <input
-              type="text" // ⬅️ Ganti dari 'email' agar validasi HTML5 tidak blokir
-              placeholder="Masukan alamat Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none"
-              required
-            />
+            <input type="text" placeholder="Masukan alamat Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full px-4 py-2 rounded-md bg-white text-black focus:outline-none" required />
 
